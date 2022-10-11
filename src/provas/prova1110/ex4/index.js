@@ -12,7 +12,7 @@ export default function Calcularsalario() {
     const [desc, setDesc] = useState([]);
 
     function Salario(){
-        let qtd = salario * (bonus/100);
+        let qtd = salario + (salario * (bonus/100));
         const total = qtd - desc;
         setCalcular(total);
 
