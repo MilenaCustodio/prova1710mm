@@ -8,6 +8,9 @@ import Exercicio5 from './provas/prova1110/ex5/index.js'
 import Exercicio6 from './provas/prova1110/ex6/index.js'
 import Exercicio7 from './provas/prova1410/ex7/index.js'
 import Exercicio8 from './provas/prova1410/ex8/index.js'
+import Exercicio9 from './provas/prova1810/ex9/index.js'
+import Exercicio10 from './provas/prova1810/ex10/index.js'
+import Exercicio11 from './provas/prova1810/ex11/index.js'
 
 
 
@@ -23,6 +26,9 @@ export const Rotas = () =>{
                 <Route path = '/ex6' element={< Exercicio6/>} />
                 <Route path = '/ex7' element={< Exercicio7/>} />
                 <Route path = '/ex8' element={< Exercicio8/>} />
+                <Route path = '/ex9' element={< Exercicio9/>} />
+                <Route path = '/ex10' element={< Exercicio10/>} />
+                <Route path = '/ex11' element={< Exercicio11/>} />
             </Routes>
         </BrowserRouter>
     );
