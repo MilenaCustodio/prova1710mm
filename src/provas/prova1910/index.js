@@ -32,9 +32,9 @@ export default function EuqueroCafe() {
     return (
 
         <main> 
-        <section className='pagina-retangulo'>
+        <section className='pagina-cafe'>
 
-            <h1> Desenhar Retangulo </h1> 
+            <h1> Cafe </h1> 
 
             <div>
                 estudantes: <input type='number' value={estudantes} onChange={e => setEstudantes(Number(e.target.value))}/> 
