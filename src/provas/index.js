@@ -49,6 +49,12 @@ export default function Index () {
                 <h1> Prova 19/10</h1>
                 <Link to='/ex12'> Exercicio 12 </Link>
             </div>
+
+            <hr/>
+            <div>
+                <h1> Prova 25/10</h1>
+                <Link to='/ex12'> Exercicio 13 </Link>
+            </div>
             
             
                 

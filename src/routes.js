@@ -22,6 +22,9 @@ import Exercicio11 from './provas/prova1810/ex11/index.js'
 //prova5
 import Exercicio12 from './provas/prova1910/index.js'
 
+//prova6
+import Exercicio13 from './provas/prova2510/index.js'
+
 //inicio
 import Inicio from './provas/index.js'
 
@@ -44,6 +47,7 @@ export const Rotas = () =>{
                 <Route path = '/ex10' element={< Exercicio10/>} />
                 <Route path = '/ex11' element={< Exercicio11/>} />
                 <Route path = '/ex12' element={< Exercicio12/>} />
+                <Route path = '/ex13' element={< Exercicio13/>} />
             </Routes>
         </BrowserRouter>
     );
