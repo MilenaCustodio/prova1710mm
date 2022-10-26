@@ -53,7 +53,7 @@ export default function Index () {
             <hr/>
             <div>
                 <h1> Prova 25/10</h1>
-                <Link to='/ex12'> Exercicio 13 </Link>
+                <Link to='/ex13'> Exercicio 13 </Link>
             </div>
             
             

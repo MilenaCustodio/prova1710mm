@@ -1,70 +1,69 @@
-import React, { useState} from 'react'
-import './index.scss'
+import { useState } from 'react';
+import './index.scss';
+import { calcMaior, calcMedia, calcMenor, criarArray } from '../services';
+
+function App() {
+  const [qtd, setQtd] = useState(0);
+  const [notasAlunos, setNotasAlunos] = useState([])
+
+  const [media, setMedia] = useState(0);
+  const [maior, setMaior] = useState(0);
+  const [menor, setMenor] = useState(0);
 
 
+  function okQtd() {
+    const x = criarArray(qtd);
+    setNotasAlunos(x);
+  }
+
+  function alterar(pos, novoValor) {
+    notasAlunos[pos] = Number(novoValor);
+    setNotasAlunos([...notasAlunos]);
+  }
+
+  function calcular() {
+    const a = calcMedia(notasAlunos);
+    const b = calcMaior(notasAlunos);
+    const c = calcMenor(notasAlunos);
+
+    setMedia(a);
+    setMaior(b);
+    setMenor(c);
+  }
 
 
-export default function Media() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <div>
+          Qtd. Alunos: <input type='text' value={qtd} onChange={e => setQtd(e.target.value)} />
+          <button onClick={okQtd}> ok </button>
+        </div>
 
-    const [contador, setContador] = useState();
-    const [qtdaluno, setQtdAluno] = useState([]);
-    const [criaraluno, setCriarAluno] = useState([]);
-     const [media, setMedia] = useState([]);
-
-    
-    
-
-    function CriarAluno(){
-        let aluno = []
-
-        for(let i = 1; i<= qtdaluno ; i++) {
-            aluno.push(i)
-        }
-         setAluno(aluno);
-
-        }
+        {notasAlunos.map((item, pos) => 
+          <div>
+            Aluno {pos+1}: <input type='text' value={notasAlunos[pos]} onChange={e => alterar(pos, e.target.value)} />
+          </div>  
+        )}
 
 
-    function MediaALuno(){
-         let aluno = []
-    
-        for(let i = 1; i<= qtdaluno ; i++) {
-            aluno.push(i)
-         }
-            setAluno(aluno);
-    
-        }
-
-
-    return (
-
-        <main> 
-        <section className='pagina-media'>
-
-            <h1> Media Alunos </h1> 
-
-            <div>
-                estudantes: <input type='number' value={estudantes} onChange={e => setEstudantes(Number(e.target.value))}/> 
-               
-                
-                <button onClick={CriarAluno}> Calcular </button>
-            </div>
-
-            <h1> {contador} </h1>
-
-
-
-
-         </section>
-
-
-        </main>
-
-    )
+        <button onClick={calcular}> Calcular </button>
+        
+        <div>
+          Média: {media}
+        </div>
+        <div>
+          Maior: {maior}
+        </div>
+        <div>
+          Menor: {menor}
+        </div>
+        
+      </header>
+    </div>
+  );
 }
 
-
-
-
-
-
+export default App;
+ 
