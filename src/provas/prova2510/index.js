@@ -1,69 +1,53 @@
-import { useState } from 'react';
-import './index.scss';
-import { calcMaior, calcMedia, calcMenor, criarArray } from '../services';
+let readLine = require('prompt-sync')();
 
-function App() {
-  const [qtd, setQtd] = useState(0);
-  const [notasAlunos, setNotasAlunos] = useState([])
+function Random() {
+    return  Math.floor(Math.random() * 1000 + 1);
+    }
 
-  const [media, setMedia] = useState(0);
-  const [maior, setMaior] = useState(0);
-  const [menor, setMenor] = useState(0);
+    function verificarNumero() {
+        let x = Random();
+        let msg = '';
+        console.log('Escolha um numero e boa sorte ^^')
 
+        for (let tentativa = 1; tentativa <=10 && msg != 'Ganhou!'; tentativa++) {
+            console.log(('Escolha um número Tentativa ' + tentativa));
+            let numero = Number(readLine());
 
-  function okQtd() {
-    const x = criarArray(qtd);
-    setNotasAlunos(x);
-  }
+            if (numero == x) {
+                msg = 'Ganhou!';
+                console.log(msg);
+            }
 
-  function alterar(pos, novoValor) {
-    notasAlunos[pos] = Number(novoValor);
-    setNotasAlunos([...notasAlunos]);
-  }
+            else if(numero < x) {
+                msg = 'Maior';
+                console.log(msg);
+            }
 
-  function calcular() {
-    const a = calcMedia(notasAlunos);
-    const b = calcMaior(notasAlunos);
-    const c = calcMenor(notasAlunos);
+            else if(numero > x) {
+                msg = 'Menor';
+                console.log(msg);
+            }
 
-    setMedia(a);
-    setMaior(b);
-    setMenor(c);
-  }
-
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <div>
-          Qtd. Alunos: <input type='text' value={qtd} onChange={e => setQtd(e.target.value)} />
-          <button onClick={okQtd}> ok </button>
-        </div>
-
-        {notasAlunos.map((item, pos) => 
-          <div>
-            Aluno {pos+1}: <input type='text' value={notasAlunos[pos]} onChange={e => alterar(pos, e.target.value)} />
-          </div>  
-        )}
+            if(tentativa == 10 && numero != x){
+                console.log('Perdeu!')
+                console.log('O número era ' + x);
+            }
+        }
+    }
 
 
-        <button onClick={calcular}> Calcular </button>
-        
-        <div>
-          Média: {media}
-        </div>
-        <div>
-          Maior: {maior}
-        </div>
-        <div>
-          Menor: {menor}
-        </div>
-        
-      </header>
-    </div>
-  );
+function main() {
+    try {
+    console.log('## RANDOM ##');
+    console.log('Gerando um numero');
+    verificarNumero();
+    }
+    catch (err) {
+        console.log('erro')
+    }
+
 }
 
-export default App;
+main();
+
  
